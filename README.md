@@ -6,9 +6,6 @@ A portfolio prototype by Rashmi Singh: an orchestrator and six GenAI agents acro
 - Guided demo (default): each agent replays a recorded run on fictional sample data. No setup needed.
 - Live AI: visitors can upload their own PDF, Word, Excel or CSV file and the agent analyses it with Claude.
 
-## Deploy as a demo only
-Drag this folder onto https://app.netlify.com/drop. The page works straight away in demo mode.
-
 ## Turn on live AI
 Drag-and-drop deploys do not run server functions, so deploy from GitHub or the Netlify CLI:
 1. Put this folder in a GitHub repository and import it in Netlify (Add new site > Import an existing project).
