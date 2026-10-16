@@ -6,10 +6,16 @@ A portfolio prototype by Rashmi Singh: an orchestrator and six GenAI agents acro
 - Guided demo (default): each agent replays a recorded run on fictional sample data. No setup needed.
 - Live AI: visitors can upload their own PDF, Word, Excel or CSV file and the agent analyses it with Claude.
 
-## Turn on live AI
-Drag-and-drop deploys do not run server functions, so deploy from GitHub or the Netlify CLI:
-1. Put this folder in a GitHub repository and import it in Netlify (Add new site > Import an existing project).
-2. In Site configuration > Environment variables, add ANTHROPIC_API_KEY with your key from console.anthropic.com.
-3. Redeploy. The top bar switches from "Guided demo" to "Live AI".
+## Deploy as a demo only
+Drag this folder onto https://app.netlify.com/drop. The page works straight away in demo mode.
+
+## Turn on live AI (optional)
+Live AI is off by default, so the site always runs the guided demo until you switch it on.
+1. Deploy from GitHub (Netlify > Add new project > Import an existing project).
+2. In Site configuration > Environment variables, add:
+   - LIVE_MODE = on
+   - ANTHROPIC_API_KEY = your key from console.anthropic.com
+3. Redeploy (Deploys > Trigger deploy). The Run the cycle tab then shows "Live AI".
+If live AI ever fails, each agent falls back to its recorded demo run.
 
 Your key stays on the server and is never sent to visitors. Each live run is billed to your Anthropic account.

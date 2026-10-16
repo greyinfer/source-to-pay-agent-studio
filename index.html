@@ -11,7 +11,7 @@
 <style>
 :root{
   --bg:#F3F6F4; --surface:#FFFFFF; --surface-2:#EDF3EF; --ink:#0F1E19; --pine:#173A30; --navy:#16294A;
-  --muted:#5D6D67; --line:#D6E0DA; --green:#2E7D5B; --green-2:#226347; --sage:#8DB19E; --sage-soft:#E2EEE7;
+  --muted:#45554F; --line:#D6E0DA; --green:#2E7D5B; --green-2:#226347; --sage:#8DB19E; --sage-soft:#E2EEE7;
   --amber:#A86C08; --amber-bright:#E0A42B; --amber-soft:#FBF0DA; --coral:#B44E39; --coral-soft:#F8E3DD; --steel:#4C6A92;
   --bar-h:64px; --dots-h:0px;
   color-scheme: light; box-sizing:border-box;
@@ -20,9 +20,10 @@
 html,body{height:100%;margin:0;overflow:hidden;background:var(--bg)}
 body{color:var(--pine);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.6;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4,h5{color:var(--ink);letter-spacing:0}
-.pane h2,.card h3,.agent h3{font-family:"Oswald","Barlow Condensed",Impact,sans-serif;text-transform:uppercase;font-weight:600;letter-spacing:.01em}
-.btn,.tab,.pill,.chip,.kicker,.badge,.value-pill,.dots .label,.brand,.slot .tag,.stats{font-family:"Barlow Condensed","Barlow",sans-serif;letter-spacing:.04em}
-.btn,.tab,.kicker,.value-pill,.brand,.dots .label{text-transform:uppercase}
+.pane h2,.card h3,.agent h3{font-family:"Barlow",system-ui,sans-serif;font-weight:700;letter-spacing:-.01em}
+.btn,.pill,.chip,.kicker,.badge,.slot .tag,.stats{font-family:"Barlow Condensed","Barlow",sans-serif;letter-spacing:.04em}
+.btn,.kicker{text-transform:uppercase}
+.tab,.brand,.value-pill,.dots .label{font-family:"Barlow",system-ui,sans-serif;letter-spacing:0;text-transform:none}
 a{color:var(--green-2)}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--amber-bright);outline-offset:3px}
@@ -58,7 +59,7 @@ button{font:inherit;cursor:pointer}
 .inner{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
 @media (max-width:600px){.inner{padding:28px 16px 70px}}
 .pane h2{font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.1;margin:0 0 10px;color:var(--navy)}
-.lead{color:var(--muted);max-width:66ch;margin:0}
+.lead{color:#34443E;max-width:70ch;margin:0}
 .next{margin-top:36px;display:flex;justify-content:flex-end}
 
 /* Buttons: light liquid glass */
@@ -75,7 +76,7 @@ button{font:inherit;cursor:pointer}
 .btn-row{display:flex;flex-wrap:wrap;gap:10px}
 
 /* Metal pill tabs (light) */
-.tab{position:relative;overflow:hidden;height:38px;padding:0 16px;border-radius:9px;border:1px solid rgba(22,41,74,.16);background:linear-gradient(105deg,#ffffff 0%,#f2f6f3 48%,#e3ebe6 100%);color:var(--navy);font-size:.88rem;font-weight:500;transition:border-color .35s, box-shadow .35s}
+.tab{position:relative;overflow:hidden;height:38px;padding:0 16px;border-radius:9px;border:1px solid rgba(22,41,74,.16);background:linear-gradient(105deg,#ffffff 0%,#f2f6f3 48%,#e3ebe6 100%);color:var(--navy);font-size:.95rem;font-weight:600;transition:border-color .35s, box-shadow .35s}
 .tab::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.9) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s ease}
 .tab:hover::before{transform:translateX(120%)}
 .tab:hover{border-color:rgba(22,41,74,.45);box-shadow:0 0 16px rgba(141,177,158,.45)}
@@ -85,8 +86,8 @@ button{font:inherit;cursor:pointer}
 @media (max-width:1100px){.head-cta{display:none}}
 
 /* Editorial hero with the procurement line */
-.hero-pane{overflow:hidden}
-.frame{position:relative;height:100%;min-height:600px;overflow:hidden;background:#EEF2EF}
+.hero-pane{overflow-y:auto}
+.frame{position:relative;min-height:100%;overflow:hidden;background:#EEF2EF}
 .terrain{position:absolute;inset:-200px 0 0 0;background-image:
   repeating-radial-gradient(circle at 78% 30%, transparent 0 46px, rgba(94,140,117,.13) 47px 48px),
   repeating-radial-gradient(circle at 18% 85%, transparent 0 60px, rgba(94,140,117,.10) 61px 62px),
@@ -97,8 +98,8 @@ button{font:inherit;cursor:pointer}
 .sleepers{position:absolute;inset:-60px 0 0 0;background:repeating-linear-gradient(180deg,transparent 0 14px,#C9D3CD 14px 22px);animation:slide 1.4s linear infinite}
 @keyframes slide{to{transform:translateY(22px)}}
 .rails{position:absolute;inset:0 22px;border-left:3px solid #8A9993;border-right:3px solid #8A9993}
-.train{position:absolute;top:18px;bottom:18px;left:var(--lx,76%);width:104px;transform:translateX(-50%);display:flex;flex-direction:column;gap:8px;z-index:2}
-.unit{position:relative;flex:1;min-height:0;border-radius:8px;background:repeating-linear-gradient(180deg,#FBFCFB 0 5px,#EEF2EF 5px 7px);border:1px solid #C5CFC9;box-shadow:0 10px 24px rgba(15,30,25,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px 0;color:inherit}
+.train{position:absolute;top:18px;bottom:18px;left:var(--lx,76%);width:104px;transform:translateX(-50%);display:flex;flex-direction:column;justify-content:center;gap:8px;z-index:2}
+.unit{position:relative;flex:1;min-height:0;max-height:132px;border-radius:8px;background:repeating-linear-gradient(180deg,#FBFCFB 0 5px,#EEF2EF 5px 7px);border:1px solid #C5CFC9;box-shadow:0 10px 24px rgba(15,30,25,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px 0;color:inherit}
 .unit::before,.unit::after{content:"";position:absolute;left:-1px;right:-1px;height:7px;background:var(--c)}
 .unit::before{top:-1px;border-radius:8px 8px 0 0}.unit::after{bottom:-1px;border-radius:0 0 8px 8px}
 .unit.loco{border-radius:44px 44px 10px 10px;background:linear-gradient(180deg,#21406A,#16294A);border-color:#16294A}
@@ -108,7 +109,7 @@ button{font:inherit;cursor:pointer}
 .unit.loco .plate{color:#fff;background:transparent}
 .unit .hint{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%);font-family:"Barlow Condensed",sans-serif;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);white-space:nowrap;opacity:0;transition:opacity .25s}
 .unit:hover .hint,.unit:focus-visible .hint{opacity:1}
-.copy{pointer-events:none;position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:min(60%,760px);padding:32px 0 32px clamp(24px,6vw,96px)}
+.copy{pointer-events:none;position:relative;z-index:3;min-height:100%;display:flex;flex-direction:column;justify-content:center;max-width:min(60%,760px);padding:32px 0 32px clamp(24px,6vw,96px)}
 .copy>*{pointer-events:auto}
 .eyebrow{margin:0 0 14px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green-2)}
 .headline{margin:0;font-family:"Oswald","Barlow Condensed",Impact,sans-serif;font-weight:700;text-transform:uppercase;color:var(--navy);font-size:clamp(2.6rem,min(7.6vw,9.6vh),6.2rem);line-height:.94;letter-spacing:-.005em}
@@ -121,7 +122,6 @@ button{font:inherit;cursor:pointer}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .hero-actions .btn{height:46px;padding:0 22px}
 @media (max-width:900px){
-  .frame{min-height:0}
   .line,.train{left:auto;right:12px;transform:none}
   .line{width:84px;right:22px}
   .train{width:72px;right:28px;gap:6px;top:12px;bottom:12px}
@@ -138,13 +138,13 @@ button{font:inherit;cursor:pointer}
 
 /* Clarity additions */
 .value-pill{display:flex;align-items:baseline;gap:6px}
-.value-pill .vl{font-size:.72rem;color:var(--muted);letter-spacing:.08em}
+.value-pill .vl{font-size:.82rem;color:var(--muted);font-weight:500}
 .value-pill b{font-weight:700}
 @media (max-width:420px){.value-pill .vl{display:none}}
 .swipe-hint{display:none;margin:14px 0 0;font-size:.85rem;color:var(--muted)}
 @media (max-width:900px){.swipe-hint{display:block}}
 .carcard{position:absolute;z-index:5;right:calc(100% - var(--lx,76%) + 70px);width:300px;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c,var(--green));border-radius:12px;padding:14px 16px;box-shadow:0 16px 36px rgba(15,30,25,.14)}
-.carcard h4{margin:0 0 2px;font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:600;font-size:1.05rem;color:var(--navy)}
+.carcard h4{margin:0 0 2px;font-family:"Barlow",sans-serif;font-weight:700;font-size:1.05rem;color:var(--navy)}
 .carcard .role{margin:0 0 6px;font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--green-2)}
 .carcard p{margin:0 0 10px;font-size:.92rem;color:var(--pine);line-height:1.45}
 .carcard .btn{height:36px;padding:0 14px;font-size:.82rem}
@@ -159,7 +159,7 @@ button{font:inherit;cursor:pointer}
 @media (max-width:700px){.stepc{grid-template-columns:1fr;gap:10px}}
 .stepc .who{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
 .stepc .who svg{width:52px}
-.stepc .num{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;color:var(--navy);font-size:1rem;line-height:1.2}
+.stepc .num{font-family:"Barlow",sans-serif;font-weight:700;color:var(--navy);font-size:1rem;line-height:1.2}
 .stepc .nm{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;color:var(--green-2);font-weight:700}
 .stepc .rows{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media (max-width:1000px){.stepc .rows{grid-template-columns:1fr 1fr}}
@@ -169,22 +169,43 @@ button{font:inherit;cursor:pointer}
 .stepc .par{grid-column:1/-1;font-size:.82rem;color:var(--amber);font-weight:600}
 .loop{margin-top:16px;font-size:.98rem}
 .loop b{color:var(--navy)}
-.subhead{margin:26px 0 10px;font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:600;font-size:1.1rem;color:var(--ink)}
+.subhead{margin:26px 0 10px;font-family:"Barlow",sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
 .basis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media (max-width:1000px){.basis{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.basis{grid-template-columns:1fr}}
 .bcard{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:16px;padding:16px}
 .bcard .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .bcard .hd svg{width:34px}
-.bcard .hd h4{margin:0;font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:600;font-size:1rem;color:var(--navy)}
+.bcard .hd h4{margin:0;font-family:"Barlow",sans-serif;font-weight:700;font-size:1rem;color:var(--navy)}
 .bcard .hd span{display:block;font-size:.8rem;color:var(--muted)}
 .bcard dl{margin:0;display:grid;gap:8px}
 .bcard dt{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.76rem;color:var(--muted)}
 .bcard dd{margin:0;font-size:.93rem;line-height:1.4}
-.bcard .amt{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.25rem;color:var(--amber)}
+.bcard .amt{font-family:"Barlow",sans-serif;font-weight:700;font-size:1.25rem;color:var(--amber)}
 .tagc{display:inline-block;border-radius:999px;padding:1px 10px;font-size:.78rem;font-weight:600}
 .tagc.yes{background:var(--sage-soft);color:var(--green-2)}.tagc.no{background:var(--coral-soft);color:var(--coral)}
 .agent .line1{margin:0 0 10px;font-weight:600;color:var(--navy)}
+
+.runbar{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-top:22px;align-items:start}
+@media (max-width:960px){.runbar{grid-template-columns:1fr}}
+.runctl .mode{display:flex;margin:0 0 4px;font-weight:600;color:var(--navy)}
+.modenote{margin:0 0 12px;font-size:.9rem;color:var(--muted)}
+.agent{display:block;margin-top:22px;scroll-margin-top:12px}
+.agent.current{border-color:var(--green);box-shadow:0 0 0 3px rgba(46,125,91,.15)}
+.whylist{display:grid;gap:12px;margin-top:22px}
+.whyc{display:grid;grid-template-columns:200px 1fr 1fr 230px;gap:18px;align-items:start;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;padding:16px 18px}
+@media (max-width:1000px){.whyc{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.whyc{grid-template-columns:1fr;gap:10px}}
+.whyc .who{display:flex;align-items:center;gap:10px}
+.whyc .who svg{width:40px;flex:0 0 40px}
+.whyc .who b{display:block;color:var(--navy);font-size:1rem}
+.whyc .who span{display:block;font-size:.82rem;color:var(--muted)}
+.whyc dt{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.76rem;color:var(--muted);margin-bottom:2px}
+.whyc dd{margin:0;font-size:.95rem;line-height:1.45;color:var(--pine)}
+.whyc .prob dd{font-weight:600;color:var(--ink)}
+.whyc .meas dd{display:flex;flex-wrap:wrap;gap:6px}
+.whyc .meas span{background:var(--sage-soft);color:var(--green-2);border-radius:999px;padding:2px 10px;font-size:.82rem;font-weight:600}
+.cost .fb{display:block;margin-top:6px;color:var(--amber)}
 
 /* Agent lenses */
 .lens{display:block;height:auto;overflow:visible}
@@ -242,7 +263,7 @@ button{font:inherit;cursor:pointer}
 .chip{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 14px 5px 6px;color:var(--navy);font-weight:600;font-size:.9rem;transition:border-color .2s, background .2s}
 .chip svg{width:30px;height:auto}
 .chip[aria-current="true"]{border-color:var(--green);background:var(--sage-soft)}
-.agent{display:none;border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden;margin-top:8px}
+.agent{display:block;border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden;margin-top:22px;scroll-margin-top:12px;transition:border-color .3s, box-shadow .3s}
 .agent.show{display:block;animation:inSoft .5s cubic-bezier(.16,1,.3,1)}
 .agent-top{display:grid;grid-template-columns:auto 1fr .95fr;gap:24px;padding:26px;align-items:start}
 @media (max-width:960px){.agent-top{grid-template-columns:auto 1fr}.agent-top .tilt{grid-column:1/-1}}
@@ -320,7 +341,7 @@ td.num,th.num{text-align:right}
 .type h4{margin:0 0 4px;font-size:1rem}.type p{margin:0;color:var(--muted);font-size:.88rem}
 .type .count{margin-top:8px;font-size:.8rem;font-weight:700;color:var(--green-2)}
 .type.t-risk .count{color:var(--coral)}
-.rules{margin:0;padding-left:20px;color:var(--muted)}.rules li{margin-bottom:6px}
+.rules{margin:0;padding-left:20px;color:var(--pine)}.rules li{margin-bottom:6px}
 .layers{display:grid;gap:10px}
 .layer{border-radius:14px;padding:14px 16px}
 .layer b{display:block;color:var(--navy)}.layer span{font-size:.88rem;color:var(--muted)}
@@ -332,13 +353,13 @@ td.num,th.num{text-align:right}
 <body>
 <header class="bar">
   <div class="bar-in">
-    <button class="brand appear a-soft" style="--d:.08s" data-go="0" aria-label="Source-to-Pay Agent Studio, overview"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="#0F1E19"/><circle cx="30" cy="30" r="23" fill="#F7F9F8"/><circle cx="30" cy="30" r="11" fill="#2E7D5B"/><circle cx="30" cy="30" r="5" fill="#0B1512"/><circle cx="30" cy="30" r="27" fill="none" stroke="#E0A42B" stroke-width="2.4"/></svg><span>Agent Studio</span></button>
+    <button class="brand" data-go="0" aria-label="Source-to-Pay Agent Studio, overview"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="29" fill="#0F1E19"/><circle cx="30" cy="30" r="23" fill="#F7F9F8"/><circle cx="30" cy="30" r="11" fill="#2E7D5B"/><circle cx="30" cy="30" r="5" fill="#0B1512"/><circle cx="30" cy="30" r="27" fill="none" stroke="#E0A42B" stroke-width="2.4"/></svg><span>Agent Studio</span></button>
     <nav class="tabs" aria-label="Sections">
-      <button class="tab appear a-soft" style="--d:.16s" data-go="0">Overview</button><button class="tab appear a-soft" style="--d:.22s" data-go="1">How it works</button><button class="tab appear a-soft" style="--d:.28s" data-go="2">Run the cycle</button><button class="tab appear a-soft" style="--d:.34s" data-go="3">Agents</button><button class="tab appear a-soft" style="--d:.40s" data-go="4">Value</button><button class="tab appear a-soft" style="--d:.46s" data-go="5">Why it matters</button>
+      <button class="tab" data-go="0">Overview</button><button class="tab" data-go="1">How it works</button><button class="tab" data-go="2">Run the cycle</button><button class="tab" data-go="3">Value</button><button class="tab" data-go="4">Why it matters</button>
     </nav>
-    <div class="right appear a-soft" style="--d:.34s"><div class="value-pill" id="pill" title="Savings a buyer has approved in this session. It starts at zero and grows as you approve agent findings."><span class="vl">Value approved</span> <b id="pillAmt">SGD 0</b></div><button class="btn btn-solid head-cta" data-go="2">Run the cycle</button></div>
+    <div class="right"><div class="value-pill" id="pill" title="Savings a buyer has approved in this session. It starts at zero and grows as you approve agent findings."><span class="vl">Value approved</span> <b id="pillAmt">SGD 0</b></div><button class="btn btn-solid head-cta" data-go="2">Run the cycle</button></div>
   </div>
-  <div class="dots" aria-label="Sections"><button data-go="0" aria-label="Overview"></button><button data-go="1" aria-label="How it works"></button><button data-go="2" aria-label="Run the cycle"></button><button data-go="3" aria-label="Agents"></button><button data-go="4" aria-label="Value"></button><button data-go="5" aria-label="Why it matters"></button><span class="label" id="dotLabel">Overview</span></div>
+  <div class="dots" aria-label="Sections"><button data-go="0" aria-label="Overview"></button><button data-go="1" aria-label="How it works"></button><button data-go="2" aria-label="Run the cycle"></button><button data-go="3" aria-label="Value"></button><button data-go="4" aria-label="Why it matters"></button><span class="label" id="dotLabel">Overview</span></div>
 </header>
 
 <main class="panes" id="panes">
@@ -383,13 +404,13 @@ td.num,th.num{text-align:right}
     </div>
   </section>
 
-  <!-- Orchestrator -->
-  <section class="pane" aria-label="Orchestrator">
+  <!-- Run the cycle -->
+  <section class="pane" aria-label="Run the cycle">
     <div class="inner">
       <h2>Run the cycle</h2>
-      <p class="lead">Press the button and watch Ora run all six agents on the Harbour Logistics example. Stages 1 to 4 run in order, because each needs the previous result. Once the contract is signed, the invoice checker and supplier risk monitor run side by side, as they would every day on every invoice and supplier. A buyer approves before every handoff.</p>
-      <div class="orch">
-        <div class="card"><svg class="orch-svg wide" viewBox="0 0 680 440" role="img" aria-label="Ora passes work through four agents in order, then runs the invoice checker and supplier risk monitor in parallel">
+      <p class="lead">Press <b>Run the full cycle</b>. Ora hands the Harbour Logistics example to each agent in turn. Read what each agent found, then approve it to move on to the next one. You can also run any agent on its own with its own button.</p>
+      <div class="card runbar">
+        <div class="runmap"><svg class="orch-svg wide" viewBox="0 0 680 440" role="img" aria-label="Ora passes work through four agents in order, then runs the invoice checker and supplier risk monitor in parallel">
 <path class="conn" data-c="o" d="M340 86 L340 112 L120 112 L120 140"/>
 <path class="conn" data-c="0" d="M210 175 L250 175"/>
 <path class="conn" data-c="1" d="M430 175 L470 175"/>
@@ -421,27 +442,16 @@ td.num,th.num{text-align:right}
 <g class="onode" data-n="5"><rect x="184" y="440" width="166" height="62" rx="14"/><text class="t1" x="267.0" y="466.0" text-anchor="middle">6. Supplier</text><text class="t2" x="267.0" y="486.0" text-anchor="middle">Beacon</text></g>
 <text class="olabel" x="180" y="530" text-anchor="middle">Run in parallel, every day</text>
 <circle class="packet" r="7" cx="-20" cy="-20"/><circle class="packet" r="7" cx="-20" cy="-20"/></svg></div>
-        <div class="card">
-          <h3 style="margin:0 0 6px;font-size:1.1rem">Full-cycle run</h3>
-          <p class="status" id="orchStatus">Ready. Ora will run the agents and stop for your approval at each step.</p>
+        <div class="runctl">
+          <p class="mode" id="mode"><span class="dot" aria-hidden="true"></span><span id="modeText">Guided demo</span></p>
+          <p class="modenote" id="modeExplain">Runs on fictional sample data, so no AI key is needed.</p>
+          <p class="status" id="orchStatus">Ready. Ora will run six agents and wait for your approval after each one.</p>
           <div class="btn-row"><button class="btn btn-solid" id="orchRun">Run the full cycle</button><button class="btn btn-ghost" id="orchReset">Reset</button></div>
-          <div id="gate"></div>
           <ul class="log" id="orchLog" aria-live="polite"></ul>
         </div>
       </div>
-      <div class="next"><button class="btn btn-solid" data-go="3">Next: meet each agent</button></div>
-    </div>
-  </section>
-
-  <!-- Agents -->
-  <section class="pane" aria-label="Agents">
-    <div class="inner">
-      <h2>Meet the agents</h2>
-      <p class="mode" id="mode" style="margin:0 0 8px"><span class="dot" aria-hidden="true"></span><span id="modeText">Guided demo</span></p>
-      <p class="lead" id="modeExplain">This page runs as a guided demo on fictional data for Harbour Logistics, a made-up company. When live mode is connected, you can upload your own files and each agent reads them in real time.</p>
-      <div class="chips" id="chips" role="tablist" aria-label="Choose an agent"></div>
       <div id="agentList"></div>
-      <div class="next"><button class="btn btn-solid" data-go="4">Next: how value is measured</button></div>
+      <div class="next"><button class="btn btn-solid" data-go="3">Next: how value is measured</button></div>
     </div>
   </section>
 
@@ -449,7 +459,7 @@ td.num,th.num{text-align:right}
   <section class="pane" aria-label="Value">
     <div class="inner">
       <h2>Value and decisions</h2>
-      <p class="lead">Only value a buyer approves counts, each opportunity is counted once, and every decision is logged with the AI cost of the run that produced it.</p>
+      <p class="lead">All amounts come from the Harbour Logistics example used throughout the studio. Only value a buyer approves counts, each opportunity is counted once, and every decision is logged with the AI cost of the run that produced it.</p>
       <div class="grid2">
         <div class="card">
           <h3>Approved value by agent</h3>
@@ -466,11 +476,11 @@ td.num,th.num{text-align:right}
         <div class="type t-cash"><h4>Cash recovered</h4><p>Money returned for overbilling, duplicates or service credits.</p><div class="count">Counted when approved</div></div>
         <div class="type t-risk"><h4>Value at risk</h4><p>Money that could be lost if nobody acts, such as an unchecked renewal.</p><div class="count">Tracked, never counted</div></div>
       </div>
-      <h3 class="subhead">The basis for each agent's value</h3><div class="basis" id="basis"></div>
+      <h3 class="subhead">What each agent found, and how it is calculated</h3><p class="lead" style="margin-bottom:14px">Each card shows the value that agent found in the example, the type of value, the calculation behind it, and whether it counts towards the approved total.</p><div class="basis" id="basis"></div>
       <div class="card" style="margin-top:20px"><h3>Counting rules</h3>
         <ul class="rules"><li>Each opportunity is counted once, at the stage where it becomes certain. Early estimates are shown but not added.</li><li>Value at risk is tracked so it gets action, but never added to the total.</li><li>Nothing counts until a buyer approves it.</li><li>AI run cost is shown beside value, so value is judged net of what the AI costs to run.</li></ul>
       </div>
-      <div class="next"><button class="btn btn-solid" data-go="5">Next: why it matters</button></div>
+      <div class="next"><button class="btn btn-solid" data-go="4">Next: why it matters</button></div>
     </div>
   </section>
 
@@ -478,24 +488,8 @@ td.num,th.num{text-align:right}
   <section class="pane" aria-label="Why it matters">
     <div class="inner">
       <h2>Why it matters</h2>
-      <p class="lead">Each agent targets a known pain point in procurement and is judged on a measure procurement teams already track.</p>
-      <div class="card" style="margin-top:24px"><h3>Pain point, agent, benefit and measure</h3><div class="scroll-x" id="why"></div></div>
-      <div class="grid2">
-        <div class="card"><h3>Where it fits</h3>
-          <div class="layers">
-            <div class="layer l1"><b>Buyers and category managers</b><span>Review findings, approve or send back.</span></div>
-            <div class="flowarrow">Recommendations up, decisions down</div>
-            <div class="layer l2"><b>Agent layer: Ora and six agents</b><span>Analyse, recommend and explain. They do not replace existing systems.</span></div>
-            <div class="flowarrow">Read data, write back approved actions</div>
-            <div class="layer l3"><b>Systems of record: Coupa, Ariba, ERP</b><span>Purchase orders, contracts, invoices, payments and approvals stay here.</span></div>
-          </div>
-        </div>
-        <div class="card"><h3>Not yet covered</h3>
-          <ul class="rules"><li>Purchase requests and intake</li><li>Supplier onboarding and due diligence</li><li>Matching goods received to invoices</li><li>Payment runs</li><li>Sustainability and Scope 3 emissions tracking</li></ul>
-          <h3 style="margin-top:20px">What it would take to run for real</h3>
-          <ul class="rules"><li>Connections to the company's procurement and finance systems</li><li>Security, access controls and data privacy review</li><li>Accuracy testing on historic data before go-live</li><li>Approval workflows that match the company's delegated authority</li><li>Monitoring of accuracy, adoption and AI run cost after launch</li></ul>
-        </div>
-      </div>
+      <p class="lead">Each agent solves a known procurement problem, and each is judged on a measure procurement teams already report.</p>
+      <div class="whylist" id="why"></div>
       <div class="next"><button class="btn btn-ghost" data-go="0">Back to the start</button></div>
       <div class="foot">Built by Rashmi Singh as a portfolio prototype. Harbour Logistics, its suppliers and all figures are fictional; values marked illustrative use stated assumptions. Run costs are estimates at an illustrative USD 3 per million input tokens and USD 15 per million output tokens. <a href="https://www.linkedin.com/in/rashmisingh-iim-shillong">LinkedIn</a></div>
     </div>
@@ -823,11 +817,15 @@ function buildCrew(){
     u.addEventListener("mouseenter", () => { if (matchMedia("(hover:hover)").matches) showCard(u); });
     u.addEventListener("click", e => { e.stopPropagation(); showCard(u, true); });
   });
-  $("train").addEventListener("mouseleave", () => { if (matchMedia("(hover:hover)").matches && !cardPinned) $("carCard").hidden = true; });
+  $("train").addEventListener("mouseleave", scheduleHide);
+  $("carCard").addEventListener("mouseenter", () => clearTimeout(hideTimer));
+  $("carCard").addEventListener("mouseleave", scheduleHide);
   document.addEventListener("click", e => { if (!e.target.closest("#carCard") && !e.target.closest(".unit")){ $("carCard").hidden = true; cardPinned = false; } });
 }
-let cardPinned = false;
+let cardPinned = false, hideTimer = 0;
+function scheduleHide(){ if (!matchMedia("(hover:hover)").matches) return; clearTimeout(hideTimer); hideTimer = setTimeout(() => { if (!cardPinned) $("carCard").hidden = true; }, 450); }
 function showCard(u, pin){
+  clearTimeout(hideTimer);
   const id = u.dataset.unit, card = $("carCard"), frame = u.closest(".frame");
   const a = AGENTS.find(x => x.id === id);
   const name = a ? a.nick : "Ora", role = a ? `Stage ${AGENTS.indexOf(a) + 1}: ${a.name}` : "Orchestrator agent", line = a ? a.line : ORA.line, color = a ? a.color : ORA.color;
@@ -867,7 +865,7 @@ setInterval(() => {
 }, 2200);
 
 /* ---------- Tabs and swipe ---------- */
-const TAB_NAMES = ["Overview","How it works","Run the cycle","Agents","Value","Why it matters"];
+const TAB_NAMES = ["Overview","How it works","Run the cycle","Value","Why it matters"];
 let current = 0;
 function goTab(i, smooth = true){
   const p = $("panes"); p.scrollTo({left: i * p.clientWidth, behavior: smooth && !reduceMotion() ? "smooth" : "auto"}); markTab(i);
@@ -881,11 +879,11 @@ $("panes").addEventListener("scroll", () => { const p = $("panes"); const i = Ma
 addEventListener("resize", () => goTab(current, false));
 document.addEventListener("click", e => {
   const go = e.target.closest("[data-go]"); if (go){ goTab(+go.dataset.go); return; }
-  const ag = e.target.closest("[data-agent]"); if (ag){ $("carCard").hidden = true; cardPinned = false; selectAgent(ag.dataset.agent); goTab(3); }
+  const ag = e.target.closest("[data-agent]"); if (ag){ $("carCard").hidden = true; cardPinned = false; goTab(2); setTimeout(() => focusAgent(ag.dataset.agent), 450); }
 });
 document.addEventListener("keydown", e => {
   if (["INPUT","TEXTAREA"].includes(document.activeElement?.tagName)) return;
-  if (e.key === "ArrowRight" && current < 5) goTab(current + 1);
+  if (e.key === "ArrowRight" && current < 4) goTab(current + 1);
   if (e.key === "ArrowLeft" && current > 0) goTab(current - 1);
 });
 
@@ -894,7 +892,7 @@ function typewriter(){}
 
 /* ---------- Agent cards ---------- */
 function agentHTML(a, i){
-  return `<article class="agent" id="agent-${a.id}" role="tabpanel">
+  return `<article class="agent" id="agent-${a.id}">
     <div class="agent-top">
       <div class="avatar">${botSVG(a.color, i + 1, a.id)}</div>
       <div>
@@ -920,9 +918,9 @@ function agentHTML(a, i){
     </div>
   </article>`;
 }
-function selectAgent(id){
-  AGENTS.forEach(a => { $("agent-" + a.id).classList.toggle("show", a.id === id); });
-  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-current", String(c.dataset.pick === id)));
+function focusAgent(id){
+  document.querySelectorAll(".agent").forEach(el => el.classList.toggle("current", el.id === "agent-" + id));
+  const el = $("agent-" + id); if (el) el.scrollIntoView({behavior: reduceMotion() ? "auto" : "smooth", block:"start"});
   queueLook();
 }
 function resultHTML(a, r, opts){
@@ -931,8 +929,7 @@ function resultHTML(a, r, opts){
   if (r.table) h += `<div class="preview">${tableHTML(r.table.columns, r.table.rows, [])}</div>`;
   if (r.findings?.length) h += `<div class="findings">${r.findings.map(f => `<div class="finding ${f.kind === "risk" ? "risk" : ""}"><div><h5>${esc(f.title)}</h5><p>${esc(f.detail)}</p>${f.source ? `<div class="src">Source: ${esc(f.source)}</div>` : ""}</div><div class="v">${f.value ? (f.kind === "risk" ? "At risk " : "") + fmt(f.value) : "Fix before signing"}</div></div>`).join("")}</div>`;
   if (r.sections?.length) h += `<div class="sections">${r.sections.map(s => `<div class="section"><h5>${esc(s.title)}</h5><ul>${s.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("")}</div>`;
-  if (opts.fromCycle) h += `<div class="approve"><span class="total">${esc(r.valueLabel || "Value found")}: ${fmt(r.valueTotal || 0)}</span><span class="placeholder">Decision taken in the full-cycle run.</span></div>`;
-  else h += `<div class="approve" id="ap-${a.id}"><span class="total">${esc(r.valueLabel || "Value found")}: ${fmt(r.valueTotal || 0)}</span><button class="btn btn-gold" data-act="ok">Approve</button><button class="btn btn-ghost" data-act="no">Send back</button></div>`;
+  h += `<div class="approve" id="ap-${a.id}"><span class="total">${esc(r.valueLabel || "Value found")}: ${fmt(r.valueTotal || 0)}</span><button class="btn btn-gold" data-act="ok">${opts.fromCycle ? "Approve and continue" : "Approve"}</button><button class="btn btn-ghost" data-act="no">${opts.fromCycle ? "Send back and stop" : "Send back"}</button></div>`;
   if (r.countNote) h += `<p class="assume">${esc(r.countNote)}</p>`;
   if (r.assumptions) h += `<p class="assume">${esc(r.assumptions)}</p>`;
   return h;
@@ -998,17 +995,31 @@ function howHTML(){
       ${st.par ? `<div class="par">Runs in parallel with stage ${i === 4 ? 6 : 5}, every day, once the contract is signed.</div>` : `<div class="par" style="color:var(--green-2)">A buyer approves before the handoff.</div>`}</div>`; }).join("");
 }
 
+function whyHTML(){
+  const keys = ["ora","spend","category","rfp","contract","invoice","supplier"];
+  return WHY.map((w, k) => { const id = keys[k], a = AGENTS.find(x => x.id === id), color = a ? a.color : ORA.color, i = a ? AGENTS.indexOf(a) : -1;
+    const meas = w[3].split(";").map(m => `<span>${esc(m.trim())}</span>`).join("");
+    return `<div class="whyc" style="--c:${color}"><div class="who">${botSVG(color, a ? i + 1 : "", id)}<div><b>${esc(a ? a.nick : "Ora")}</b><span>${a ? `Stage ${i + 1}: ${esc(a.name)}` : "Orchestrator agent"}</span></div></div>
+      <dl class="prob"><dt>The problem</dt><dd>${esc(w[0])}</dd></dl><dl><dt>How the agent helps</dt><dd>${esc(w[2])}</dd></dl><dl class="meas"><dt>Measured by</dt><dd>${meas}</dd></dl></div>`; }).join("");
+}
+
 /* ---------- Running agents ---------- */
 let LIVE = false; const uploaded = {};
 async function execute(a, context){
   const text = uploaded[a.id]?.text || SAMPLE_TEXT[a.id];
   if (LIVE){
-    const r = await fetch("/api/agent", {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({agent:a.id, text, filename:uploaded[a.id]?.name || "sample", context})});
-    const j = await r.json();
-    if (!r.ok) throw new Error(j.error || "The agent could not finish.");
-    const usage = j._usage; delete j._usage;
-    const cost = usage ? {inTok:usage.input_tokens, outTok:usage.output_tokens, usd:usage.input_tokens * 3 / 1e6 + usage.output_tokens * 15 / 1e6} : estimateCost(text, j);
-    return {result:j, cost, live:true};
+    try {
+      const r = await fetch("/api/agent", {method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({agent:a.id, text, filename:uploaded[a.id]?.name || "sample", context})});
+      const j = await r.json();
+      if (!r.ok || !j.summary) throw new Error(j.error || "No answer");
+      const usage = j._usage; delete j._usage;
+      const cost = usage ? {inTok:usage.input_tokens, outTok:usage.output_tokens, usd:usage.input_tokens * 3 / 1e6 + usage.output_tokens * 15 / 1e6} : estimateCost(text, j);
+      return {result:j, cost, live:true};
+    } catch (e){
+      if (uploaded[a.id]) throw new Error("Live AI did not respond, so your file could not be analysed.");
+      const result = a.demo();
+      return {result, cost:estimateCost(text, result), live:false, fallback:true};
+    }
   }
   const result = a.demo();
   return {result, cost:estimateCost(text, result), live:false};
@@ -1024,9 +1035,9 @@ async function runAgent(a, opts = {}){
     for (const li of items){ li.className = "active"; await wait(opts.fast ? 360 : 600); li.className = "done"; }
     out = await job;
     totalCost += out.cost.usd; runs++;
-    $("cost-" + a.id).innerHTML = `Run cost: <b>${usd(out.cost.usd)}</b> for about ${out.cost.inTok.toLocaleString()} input and ${out.cost.outTok.toLocaleString()} output tokens${out.live ? "" : " (estimate)"}.`;
+    $("cost-" + a.id).innerHTML = `Run cost: <b>${usd(out.cost.usd)}</b> for about ${out.cost.inTok.toLocaleString()} input and ${out.cost.outTok.toLocaleString()} output tokens${out.live ? "" : " (estimate)"}.${out.fallback ? `<span class="fb">Live AI did not respond, so this shows the recorded demo run.</span>` : ""}`;
     $("res-" + a.id).innerHTML = resultHTML(a, out.result, opts);
-    if (!opts.fromCycle) wireApproval(a, out.result);
+    out.decision = wireApproval(a, out.result, opts.fromCycle ? "full cycle" : "");
     setMood(a.id, "happy"); setTimeout(() => setMood(a.id, null), 4000);
     refreshDashboard();
   } catch (e){
@@ -1034,14 +1045,18 @@ async function runAgent(a, opts = {}){
     $("res-" + a.id).innerHTML = `<h4>Result</h4><p class="placeholder">${esc(e.message)} Try a smaller file, or run the sample.</p>`;
   }
   btn.disabled = false; btn.textContent = `Run ${a.nick} again`;
-  return out?.result;
+  return out ? {result: out.result, decision: out.decision} : null;
 }
-function wireApproval(a, r){
-  const box = $("ap-" + a.id);
-  box.addEventListener("click", ev => {
-    const act = ev.target.dataset?.act; if (!act) return;
-    decide(a, r, act === "ok", "");
-    box.innerHTML = act === "ok" ? `<span class="approved">Approved: ${fmt(counted(r))} added to the total.</span>` : `<span class="placeholder">Sent back for review. Nothing added to the total.</span>`;
+function wireApproval(a, r, via){
+  return new Promise(res => {
+    const box = $("ap-" + a.id);
+    box.addEventListener("click", ev => {
+      const act = ev.target.dataset?.act; if (!act) return;
+      const ok = act === "ok";
+      decide(a, r, ok, via);
+      box.innerHTML = ok ? `<span class="approved">Approved: ${fmt(counted(r))} added to the total.</span>` : `<span class="placeholder">Sent back for review. Nothing added to the total.</span>`;
+      res(ok);
+    });
   });
 }
 
@@ -1058,35 +1073,28 @@ async function movePacket(cid, which = 0){
   await new Promise(res => { const step = t => { const k = Math.min(1, (t - t0) / d); const pt = p.getPointAtLength(len * k); dot.setAttribute("cx", pt.x); dot.setAttribute("cy", pt.y); k < 1 ? requestAnimationFrame(step) : res(); }; requestAnimationFrame(step); });
   dot.setAttribute("cx", -20); dot.setAttribute("cy", -20);
 }
-function askGate(list){
-  return new Promise(res => {
-    const body = list.map(([a, r]) => `<h4>${esc(a.nick)}, the ${esc(a.name.toLowerCase())}, recommends</h4><p>${esc(r.findings?.[0]?.title || "")}. ${esc(r.summary)}</p><p class="val">${esc(r.valueLabel || "Value")}: ${fmt(r.valueTotal || 0)}</p>${r.countNote ? `<p>${esc(r.countNote)}</p>` : ""}`).join("");
-    $("gate").innerHTML = `<div class="gate">${body}<div class="btn-row"><button class="btn btn-gold" id="gOk">${list.length > 1 ? "Approve both and finish" : "Approve and continue"}</button><button class="btn btn-ghost" id="gNo">Send back and stop</button></div></div>`;
-    $("gOk").onclick = () => { $("gate").innerHTML = ""; res(true); };
-    $("gNo").onclick = () => { $("gate").innerHTML = ""; res(false); };
-  });
-}
 function resetCycle(){
   AGENTS.forEach((a, i) => setNode(i, null));
   document.querySelectorAll(".conn").forEach(c => c.classList.remove("on"));
-  $("gate").innerHTML = ""; $("orchLog").innerHTML = "";
-  $("orchStatus").textContent = "Ready. Ora will run the agents and stop for your approval at each step.";
+  document.querySelectorAll(".agent").forEach(el => el.classList.remove("current"));
+  $("orchLog").innerHTML = "";
+  $("orchStatus").textContent = "Ready. Ora will run six agents and wait for your approval after each one.";
 }
 async function runCycle(){
   if (cycleRunning) return; cycleRunning = true; resetCycle();
   const btn = $("orchRun"); btn.disabled = true; btn.textContent = "Running";
   setMood("ora", "thinking");
-  logLine("<b>Ora:</b> received the Harbour Logistics spend export. Stages 1 to 4 will run in order, then invoices and supplier risk in parallel.");
+  logLine("<b>Ora:</b> received the Harbour Logistics spend export. Stages 1 to 4 run in order, then invoices and supplier risk run in parallel.");
   await movePacket("o");
   let context = "", stopped = false, value = 0;
   for (let i = 0; i < 4 && !stopped; i++){
-    const a = AGENTS[i]; setNode(i, "active");
-    $("orchStatus").textContent = `Step ${i + 1}: ${a.nick} is working.`;
+    const a = AGENTS[i]; setNode(i, "active"); focusAgent(a.id);
+    $("orchStatus").textContent = `Step ${i + 1} of 6: ${a.nick} is working.`;
     logLine(`<b>Ora:</b> handing the work to ${esc(a.nick)}, the ${esc(a.name.toLowerCase())}.`);
-    const r = await runAgent(a, {fromCycle:true, fast:true, context});
-    if (!r){ setNode(i, "stopped"); logLine(`<b>Ora:</b> ${esc(a.nick)} could not finish. Run stopped.`); stopped = true; break; }
-    $("orchStatus").textContent = `Step ${i + 1}: waiting for the buyer's decision.`;
-    const ok = await askGate([[a, r]]); decide(a, r, ok, "full cycle");
+    const out = await runAgent(a, {fromCycle:true, fast:true, context});
+    if (!out){ setNode(i, "stopped"); logLine(`<b>Ora:</b> ${esc(a.nick)} could not finish. Run stopped.`); stopped = true; break; }
+    $("orchStatus").textContent = `Step ${i + 1} of 6: review ${a.nick}'s findings, then approve to continue.`;
+    const ok = await out.decision; const r = out.result;
     if (!ok){ setNode(i, "stopped"); logLine(`<b>Buyer:</b> sent back ${esc(a.nick)}'s result. Run stopped for review.`); stopped = true; break; }
     value += counted(r); setNode(i, "done");
     logLine(`<b>Buyer:</b> approved, adding ${fmt(counted(r))}. <b>Handoff:</b> ${esc(r.handoff || "")}`);
@@ -1097,21 +1105,23 @@ async function runCycle(){
     const inv = AGENTS[4], sup = AGENTS[5];
     logLine("<b>Ora:</b> contract signed. Running Tally and Beacon in parallel.");
     await Promise.all([movePacket("3a", 0), movePacket("3b", 1)]);
-    setNode(4, "active"); setNode(5, "active");
+    setNode(4, "active"); setNode(5, "active"); focusAgent(inv.id);
     $("orchStatus").textContent = "Steps 5 and 6: Tally and Beacon are working in parallel.";
-    const [ri, rs] = await Promise.all([runAgent(inv, {fromCycle:true, fast:true, context}), runAgent(sup, {fromCycle:true, fast:true, context})]);
-    if (!ri || !rs){ setNode(4, ri ? "done" : "stopped"); setNode(5, rs ? "done" : "stopped"); stopped = true; logLine("<b>Ora:</b> a parallel agent could not finish. Run stopped."); }
+    const [oi, os] = await Promise.all([runAgent(inv, {fromCycle:true, fast:true, context}), runAgent(sup, {fromCycle:true, fast:true, context})]);
+    if (!oi || !os){ setNode(4, oi ? "done" : "stopped"); setNode(5, os ? "done" : "stopped"); stopped = true; logLine("<b>Ora:</b> a parallel agent could not finish. Run stopped."); }
     else {
-      $("orchStatus").textContent = "Steps 5 and 6: waiting for the buyer's decision.";
-      const ok = await askGate([[inv, ri], [sup, rs]]);
-      decide(inv, ri, ok, "full cycle"); decide(sup, rs, ok, "full cycle");
-      if (ok){ value += counted(ri) + counted(rs); setNode(4, "done"); setNode(5, "done"); logLine(`<b>Buyer:</b> approved both, adding ${fmt(counted(ri) + counted(rs))}. ${esc(rs.handoff || "")}`); }
-      else { setNode(4, "stopped"); setNode(5, "stopped"); stopped = true; logLine("<b>Buyer:</b> sent back the parallel results for review."); }
+      $("orchStatus").textContent = "Steps 5 and 6: approve Tally's findings, then Beacon's.";
+      const okI = await oi.decision; setNode(4, okI ? "done" : "stopped");
+      if (okI){ value += counted(oi.result); logLine(`<b>Buyer:</b> approved Tally, adding ${fmt(counted(oi.result))}.`); focusAgent(sup.id); }
+      const okS = await os.decision; setNode(5, okS ? "done" : "stopped");
+      if (okS){ value += counted(os.result); logLine(`<b>Buyer:</b> approved Beacon, adding ${fmt(counted(os.result))}. ${esc(os.result.handoff || "")}`); }
+      if (!okI || !okS){ stopped = true; logLine("<b>Buyer:</b> sent back a parallel result for review."); }
     }
   }
   setMood("ora", stopped ? null : "happy"); setTimeout(() => setMood("ora", null), 5000);
   $("orchStatus").textContent = stopped ? "Run stopped. Adjust and run again." : `Cycle complete. ${fmt(value)} approved, for ${usd(totalCost)} of AI run cost so far.`;
   btn.disabled = false; btn.textContent = "Run the full cycle again"; cycleRunning = false;
+  if (!stopped) document.querySelector(".runbar").scrollIntoView({behavior: reduceMotion() ? "auto" : "smooth", block:"start"});
 }
 
 /* ---------- Live mode and uploads ---------- */
@@ -1155,7 +1165,7 @@ async function detectLive(){
     const j = r.ok ? await r.json() : null;
     if (j && j.ok){
       LIVE = true; $("mode").classList.add("live"); $("modeText").textContent = "Live AI";
-      $("modeExplain").textContent = "Live mode is on. Run the samples, or upload your own file and the agent reads it in real time. Approve the findings you agree with.";
+      $("modeExplain").textContent = "Live AI is on. Run the samples, or upload your own file and the agent reads it in real time.";
       enableUploads();
     }
   } catch (e){}
@@ -1163,17 +1173,14 @@ async function detectLive(){
 
 /* ---------- Setup ---------- */
 buildCrew();
-$("chips").innerHTML = AGENTS.map((a, i) => `<button class="chip" role="tab" data-pick="${a.id}">${botSVG(a.color, i + 1, a.id)}${esc(a.nick)}, ${esc(a.short.toLowerCase())}</button>`).join("");
-$("chips").addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) selectAgent(c.dataset.pick); });
 $("agentList").innerHTML = AGENTS.map(agentHTML).join("");
-AGENTS.forEach(a => $("run-" + a.id).addEventListener("click", () => runAgent(a)));
-selectAgent("spend");
+AGENTS.forEach(a => $("run-" + a.id).addEventListener("click", () => { focusAgent(a.id); runAgent(a); }));
 $("orchRun").addEventListener("click", runCycle);
 $("orchReset").addEventListener("click", () => { if (!cycleRunning) resetCycle(); });
 $("basis").innerHTML = basisHTML();
 $("flowstrip").innerHTML = flowHTML();
 $("howSteps").innerHTML = howHTML();
-$("why").innerHTML = tableHTML(["Pain point","Agent","Benefit","Measure tracked"], WHY, []);
+$("why").innerHTML = whyHTML();
 if (!reduceMotion() && matchMedia("(hover:hover)").matches){
   document.querySelectorAll(".card3d").forEach(card => {
     card.addEventListener("mousemove", e => { const r = card.getBoundingClientRect(); const dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5; card.style.transform = `rotateY(${dx * 6}deg) rotateX(${-dy * 6}deg)`; });
